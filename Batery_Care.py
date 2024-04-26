@@ -9,10 +9,24 @@ porcentaje_carga_completa = 100
 # Inicializar la biblioteca win10toast
 toaster = win10toast.ToastNotifier()
 
+# Define la función para obtener el porcentaje de la batería
+def get_battery_percentage():
+  # Obtener la instancia de la clase Win32_Battery
+  battery = wmi.WMI().Win32_Battery()
+
+  # Obtener el porcentaje de carga actual
+  porcentaje_carga = battery[0].BatteryStatus
+  
+  # Convertir el valor a un número entero
+  porcentaje_carga_int = int(porcentaje_carga)
+
+  # Devolver el porcentaje de carga
+  return porcentaje_carga_int
+
 while True:
     # Obtener el porcentaje actual de carga de la batería
     porcentaje_carga_actual = get_battery_percentage()
-    # Función para obtener el porcentaje de batería (no implementada)
+    # Función para obtener el porcentaje de batería
 
     # Si la batería está completamente cargada
     if porcentaje_carga_actual >= porcentaje_carga_completa:
