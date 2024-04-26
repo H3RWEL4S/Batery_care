@@ -2,6 +2,8 @@
 #pip install win10toast
 import win10toast 
 import time
+#pip install wmi
+import wmi
 
 # Batería completamente cargada al 100%
 porcentaje_carga_completa = 100
